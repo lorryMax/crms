@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	 http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        ">
+	<!-- 扫描控制器 -->
+	<context:component-scan base-package="com.sxt.sys.controller"></context:component-scan>
+	<context:component-scan base-package="com.sxt.bus.controller"></context:component-scan>
+	<!-- 启动配置注解的映射器 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+	<!-- 配置视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 配置转发地址的前缀 -->
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<!-- 配置转发地址的后缀缀 -->
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	<!-- 过滤放行静态资源文件 -->
+	<mvc:default-servlet-handler/>
+	<!-- 文件上传的支持 -->
+	<!-- 配置对文件上传的支持 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设置编码 -->
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<!--设置文件上传的最大在小  -->
+		<property name="maxUploadSize" value="21474836480"></property>
+		<!--设置临时目录  -->
+		<property name="uploadTempDir" value="/upload/temp"></property>
+	</bean>
+	<!-- 拦截器 -->
+</beans>
+
