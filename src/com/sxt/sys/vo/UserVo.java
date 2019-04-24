@@ -1,0 +1,37 @@
+package com.sxt.sys.vo;
+
+import com.sxt.sys.domain.User;
+
+public class UserVo extends User {
+    //新密码
+    private String pass;
+
+    private Integer page;//页号
+    private Integer rows;//每页条数
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getRows() {
+        return rows;
+    }
+
+    public void setRows(Integer rows) {
+        this.rows = rows;
+    }
+
+
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+}
